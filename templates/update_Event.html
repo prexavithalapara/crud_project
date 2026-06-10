@@ -1,0 +1,120 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="pagetitle">
+      <h1>Form Elements</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Forms</li>
+          <li class="breadcrumb-item active">Elements</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-10">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">General Form Elements</h5>
+
+              <!-- General Form Elements -->
+              <form method="POST">
+                {% csrf_token %}
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">title</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="title" value="{{Event.title}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">date</label>
+                  <div class="col-sm-10">
+                    <input type="date" name="date" value="{{Event.date|date:'y-m-d'}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">time</label>
+                  <div class="col-sm-10">
+                    <input type="time" name="time" value="{{Event.value}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">location</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="location" value="{{Event.location}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">description</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="description" value="{{Event.description}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">organizer</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="organizer" value="{{Event.organizer}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">capacity</label>
+                  <div class="col-sm-10">
+                    <input type="number" name="capacity" value="{{Event.capacity}}" class="form-control">
+                  </div>
+                </div>
+
+                <fieldset class="row mb-3">
+                  <legend class="col-form-label col-sm-2 pt-0">registration_required</legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="registration_required" id="gridRadios1" value="option1">
+                      <label class="form-check-label" for="gridRadios1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="registration_required" id="gridRadios2" value="option2">
+                      <label class="form-check-label" for="gridRadios2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </fieldset> 
+                <fieldset class="row mb-3">
+                  <legend class="col-form-label col-sm-2 pt-0">status</legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="status" id="gridRadios3" value="option1">
+                      <label class="form-check-label" for="gridRadios3">
+                        Upcoming
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="status" id="gridRadios4" value="option2">
+                      <label class="form-check-label" for="gridRadios4">
+                        Completed
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Submit Button</label>
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+{% endblock %}  

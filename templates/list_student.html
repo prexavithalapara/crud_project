@@ -1,0 +1,62 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="pagetitle">
+      <h1>General Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">General</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Default Table</h5>
+
+              <!-- Default Table -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Roll</th>
+                    <th scope="col">DOB</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for i in stud %}
+                  <tr>
+                    <th>{{forloop.counter}}</th>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.roll}}</td>
+                    <td>{{i.dob}}</td>
+                    <td>{{i.contact}}</td>
+                    <td>
+                        <a href="{% url 'delete_student' i.id %}"><button type="button" class="btn btn-outline-danger">Delete</button></a> 
+                        <a href="{% url 'update_student' i.id %}"><button type="button" class="btn btn-outline-primary">Update</button></a> 
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Default Table Example -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

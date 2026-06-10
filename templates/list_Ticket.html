@@ -1,0 +1,71 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="pagetitle">
+      <h1>General Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">General</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Default Table</h5>
+
+              <!-- Default Table -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Event</th>
+                    <th scope="col">ticket_no</th>
+                    <th scope="col">subject</th>
+                    <th scope="col">description</th>
+                    <th scope="col">priority</th>
+                    <th scope="col">status</th>
+                    <th scope="col">created_date</th>
+                    <th scope="col">updated_date</th>
+                    <th scope="col">assigned_to</th>
+                    <th scope="col">type</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for i in Ticket %}
+                  <tr>
+                    <th>{{forloop.counter}}</th>
+                    <td>{{i.kkk.title}}</td>
+                    <td>{{i.ticket_no}}</td>
+                    <td>{{i.subject}}</td>
+                    <td>{{i.description}}</td>
+                    <td>{{i.priority}}</td>
+                    <td>{{i.status}}</td>
+                    <td>{{i.created_date}}</td>
+                    <td>{{i.updated_date}}</td>
+                    <td>{{i.assigned_to}}</td>
+                    <td>{{i.type}}</td>
+                    <td>
+                        <a href="{% url 'delete_Ticket' i.id %}"><button type="button" class="btn btn-outline-primary">Delete</button></a>
+                        <a href="{% url 'update_Ticket' i.id %}"><button type="button" class="btn btn-outline-primary">Update</button></a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Default Table Example -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

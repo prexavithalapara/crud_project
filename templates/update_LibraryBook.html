@@ -1,0 +1,97 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="pagetitle">
+      <h1>Form Elements</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Forms</li>
+          <li class="breadcrumb-item active">Elements</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-10">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">General Form Elements</h5>
+
+              <!-- General Form Elements -->
+              <form method="POST">
+                {% csrf_token %}
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">title</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="title" value="{{LibraryBook.title}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">isbn</label>
+                  <div class="col-sm-10">
+                    <input type="number" name="isbn" value="{{LibraryBook.isbn}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">author</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="author" value="{{LibraryBook.author}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">publisher</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="publisher" value="{{LibraryBook.publisher}}" class="form-control">
+                  </div>
+                </div>
+                 <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">edition</label>
+                  <div class="col-sm-10">
+                    <input type="number" name="edition" value="{{LibraryBook.edition}}" class="form-control">
+                  </div>
+                </div>
+                 <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">pages</label>
+                  <div class="col-sm-10">
+                    <input type="number" name="pages" value="{{LibraryBook.pages}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">category</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="category" value="{{LibraryBook.category}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">stock</label>
+                  <div class="col-sm-10">
+                    <input type="number" name="stock" value="{{LibraryBook.stock}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">status</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="status" value="{{LibraryBook.status}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Submit Button</label>
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+{% endblock %}  

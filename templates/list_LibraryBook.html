@@ -1,0 +1,70 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="pagetitle">
+      <h1>General Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">General</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-10">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Default Table</h5>
+
+              <!-- Default Table -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">student name</th>
+                    <th scope="col">title</th>
+                    <th scope="col">isbn</th>
+                    <th scope="col">author</th>
+                    <th scope="col">publisher</th>
+                    <th scope="col">edition</th>
+                    <th scope="col">pages</th>
+                    <th scope="col">category</th>
+                    <th scope="col">stock</th>
+                    <th scope="col">status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for i in LibraryBook %}
+                  <tr>
+                    <th>{{forloop.counter}}</th>
+                    <td>{{i.abc.name}}</td>
+                    <td>{{i.title}}</td>
+                    <td>{{i.isbn}}</td>
+                    <td>{{i.author}}</td>
+                    <td>{{i.publisher}}</td>
+                    <td>{{i.edition}}</td>
+                    <td>{{i.pages}}</td>
+                    <td>{{i.category}}</td>
+                    <td>{{i.stock}}</td>
+                    <td>{{i.gstatusr}}</td>
+                    <td>
+                        <a href="{% url 'delete_LibraryBook' i.id %}"><button type="button" class="btn btn-outline-primary">Delete</button></a>
+                        <a href="{% url 'update_LibraryBook' i.id %}"><button type="button" class="btn btn-outline-primary">Update</button></a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Default Table Example -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

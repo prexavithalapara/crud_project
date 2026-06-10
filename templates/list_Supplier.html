@@ -1,0 +1,68 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="pagetitle">
+      <h1>General Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">General</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-10">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Default Table</h5>
+
+              <!-- Default Table -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">supplier_code</th>
+                    <th scope="col">phone</th>
+                    <th scope="col">email</th>
+                    <th scope="col">gst_no</th>
+                    <th scope="col">address</th>
+                    <th scope="col">city</th>
+                    <th scope="col">state</th>
+                    <th scope="col">status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for i in Supplier %}
+                  <tr>
+                    <th>{{forloop.counter}}</th>
+                    <td>{{i.name}}</td>
+                    <td>{{i.supplier_code}}</td>
+                    <td>{{i.phone}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.gst_no}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.city}}</td>
+                    <td>{{i.state}}</td>
+                    <td>{{i.status}}</td>
+                    <td>
+                        <a href="{% url 'delete_Supplier' i.id %}"><button type="button" class="btn btn-outline-primary">Delete</button></a>
+                        <a href="{% url 'update_Supplier' i.id %}"><button type="button" class="btn btn-outline-primary">Update</button></a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Default Table Example -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

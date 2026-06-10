@@ -1,0 +1,70 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="pagetitle">
+      <h1>General Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">General</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-10">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Default Table</h5>
+
+              <!-- Default Table -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">sku</th>
+                    <th scope="col">price</th>
+                    <th scope="col">brand</th>
+                    <th scope="col">category</th>
+                    <th scope="col">stock</th>
+                    <th scope="col">manufacture_date</th>
+                    <th scope="col">expiry_date</th>
+                    <th scope="col">status</th>
+                    <th scope="col">image</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for i in product %}
+                  <tr>
+                    <th>{{forloop.counter}}</th>
+                    <td>{{i.name}}</td>
+                    <td>{{i.sku}}</td>
+                    <td>{{i.price}}</td>
+                    <td>{{i.brand}}</td>
+                    <td>{{i.category}}</td>
+                    <td>{{i.stock}}</td>
+                    <td>{{i.manufacture_date}}</td>
+                    <td>{{i.expiry_date}}</td>
+                    <td>{{i.status}}</td>
+                    <td>{{i.image}}</td>
+                    <td>
+                        <a href="{% url 'delete_product' i.id %}"><button type="button" class="btn btn-outline-primary">Delete</button></a>
+                        <a href="{% url 'update_product' i.id %}"><button type="button" class="btn btn-outline-primary">Update</button></a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Default Table Example -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

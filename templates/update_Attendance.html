@@ -1,0 +1,97 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="pagetitle">
+      <h1>Form Elements</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Forms</li>
+          <li class="breadcrumb-item active">Elements</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-10">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">General Form Elements</h5>
+
+              <!-- General Form Elements -->
+              <form method="POST">
+                {% csrf_token %}
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">student_name</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="student_name" value="{{Attendance.student_name}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">date</label>
+                  <div class="col-sm-10">
+                    <input type="date" name="date" value="{{Attendance.date|date:'y-m-d'}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">status</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="status" value="{{Attendance.status}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">subject</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="subject" value="{{Attendance.subject}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">lecture_no</label>
+                  <div class="col-sm-10">
+                    <input type="number" name="lecture_no" value="{{Attendance.lecture_no}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">remarks</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="remarks" value="{{Attendance.remarks}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">teacher_name</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="teacher_name" value="{{Attendance.teacher_name}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">attendance_code</label>
+                  <div class="col-sm-10">
+                    <input type="number" name="attendance_code" value="{{Attendance.attendance_code}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">type</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="type" value="{{Attendance.type}}" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Submit Button</label>
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+{% endblock %}  

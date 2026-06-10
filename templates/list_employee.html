@@ -1,0 +1,70 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="pagetitle">
+      <h1>General Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">General</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-10">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Default Table</h5>
+
+              <!-- Default Table -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Teacher Name</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">emp_code</th>
+                    <th scope="col">department</th>
+                    <th scope="col">designation</th>
+                    <th scope="col">salary</th>
+                    <th scope="col">email</th>
+                    <th scope="col">phone</th>
+                    <th scope="col">joining_date</th>
+                    <th scope="col">status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for i in emp %}
+                  <tr>
+                    <th>{{forloop.counter}}</th>
+                    <td>{{i.stud.name}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.emp_code}}</td>
+                    <td>{{i.department}}</td>
+                    <td>{{i.designation}}</td>
+                    <td>{{i.salary}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.phone}}</td>
+                    <td>{{i.joining_date}}</td>
+                    <td>{{i.status}}</td>
+                    <td>
+                        <a href="{% url 'delete_employee' i.id %}"><button type="button" class="btn btn-outline-primary">Delete</button></a>
+                        <a href="{% url 'update_employee' i.id %}"><button type="button" class="btn btn-outline-primary">Update</button></a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Default Table Example -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

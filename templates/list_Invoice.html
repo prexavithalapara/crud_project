@@ -1,0 +1,67 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="pagetitle">
+      <h1>General Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">General</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-10">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Default Table</h5>
+
+              <!-- Default Table -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">invoice_no</th>
+                    <th scope="col">customer_name</th>
+                    <th scope="col">date</th>
+                    <th scope="col">amount</th>
+                    <th scope="col">gst</th>
+                    <th scope="col">discount</th>
+                    <th scope="col">net_amount</th>
+                    <th scope="col">payment_mode</th>
+                    <th scope="col">status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for i in Invoice %}
+                  <tr>
+                    <th>{{forloop.counter}}</th>
+                    <td>{{i.invoice_no}}</td>
+                    <td>{{i.customer_name}}</td>
+                    <td>{{i.date}}</td>
+                    <td>{{i.amount}}</td>
+                    <td>{{i.gst}}</td>
+                    <td>{{i.discount}}</td>
+                    <td>{{i.net_amount}}</td>
+                    <td>{{i.payment_mode}}</td>
+                    <td>{{i.status}}</td>
+                    <td>
+                        <a href="{% url 'delete_Invoice' i.id %}"><button type="button" class="btn btn-outline-primary">Delete</button></a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Default Table Example -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}
